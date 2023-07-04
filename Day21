@@ -1,0 +1,1 @@
+select h.hacker_id,name,sum(a) as sc from hackers as hinner join (select hacker_id,max(score) as a from submissions group by hacker_id,challenge_id) as t on h.hacker_id=t.hacker_idgroup by h.hacker_id,namehaving sum(a)>0order by sum(a) desc , hacker_id
